@@ -35,6 +35,6 @@ const Activities = {
     delete: (id: string) => requests.del<void>(`/activities/${id}`)
 }
 const agent = {
-    Activities
+    Activities,
 }
 export default agent;
