@@ -7,21 +7,22 @@ import LoadingComponent from "../../../app/layout/LoadingComponent";
 import ActivityFilters from "./ActivityFilters";
 
 export default observer(function ActivityDashboard() {
-    const {activityStore} = useStore();
-    const{loadActivities, activityRegistry} = activityStore;
+    const { activityStore } = useStore();
+    const { loadActivities, activityRegistry } = activityStore;
+
     useEffect(() => {
         if (activityRegistry.size <= 1) loadActivities();
-    }, [activityStore,activityRegistry.size])
+    }, [loadActivities, activityRegistry.size])
 
-    if (activityStore.loadingInitial) return <LoadingComponent content={'Loading app...'}/>
+    if (activityStore.loadingInitial) return <LoadingComponent content='Loading activitities...' />
 
     return (
         <Grid>
-            <Grid.Column width={'10'}>
-                <ActivityList/>
+            <Grid.Column width='10'>
+                <ActivityList />
             </Grid.Column>
-            <Grid.Column width={'6'}>
-               <ActivityFilters/>
+            <Grid.Column width='6'>
+                <ActivityFilters />
             </Grid.Column>
         </Grid>
     )

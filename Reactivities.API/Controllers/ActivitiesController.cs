@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace Reactivities.API.Controllers
 {
+    [AllowAnonymous]
     public class ActivitiesController : BaseApiController
     {
 
