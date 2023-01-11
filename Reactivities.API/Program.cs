@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
-using Reactivities.API.Middleware;
+using Reactivities.API.SignalR;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -36,7 +36,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
-
+app.MapHub<ChatHub>("/chat");
 using var scope = app.Services.CreateScope();
 var services = scope.ServiceProvider;
 
