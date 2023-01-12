@@ -30,7 +30,7 @@ export default observer(function ActivityDetailedHeader({ activity }: Props) {
             <Segment basic attached='top' style={{ padding: '0' }}>
                 {activity.isCancelled &&
                     <Label style={{ position: 'absolute', zIndex: 1000, left: -14, top: 20 }}
-                           ribbon color='red' content='Cancelled' />}
+                        ribbon color='red' content='Cancelled' />}
                 <Image src={`/assets/categoryImages/${activity.category}.jpg`} fluid style={activityImageStyle} />
                 <Segment style={activityImageTextStyle} basic>
                     <Item.Group>
@@ -73,11 +73,11 @@ export default observer(function ActivityDetailedHeader({ activity }: Props) {
                     </>
 
                 ) : activity.isGoing ? (
-                    <Button onClick={updateAttendeance}
-                            loading={loading}>Cancel attendance</Button>
+                    <Button onClick={updateAttendeance} 
+                        loading={loading}>Cancel attendance</Button>
                 ) : (
-                    <Button disabled={activity.isCancelled} onClick={updateAttendeance}
-                            loading={loading} color='teal'>Join Activity</Button>
+                    <Button disabled={activity.isCancelled} onClick={updateAttendeance} 
+                        loading={loading} color='teal'>Join Activity</Button>
                 )}
             </Segment>
         </Segment.Group>

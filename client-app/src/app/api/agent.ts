@@ -3,7 +3,7 @@ import { toast } from 'react-toastify';
 import { Activity, ActivityFormValues } from '../models/activity';
 import { Photo, Profile } from '../models/profile';
 import { User, UserFormValues } from '../models/user';
-import {router} from "../../router/Routes";
+import { router } from '../router/Routes';
 import { store } from '../stores/store';
 
 const sleep = (delay: number) => {
@@ -44,7 +44,7 @@ axios.interceptors.response.use(async response => {
                 toast.error(data);
             }
             break;
-        case 401:
+        case 401: 
             toast.error('unauthorised')
             break;
         case 403:
@@ -93,7 +93,11 @@ const Profiles = {
         })
     },
     setMainPhoto: (id: string) => axios.post(`/photos/${id}/setMain`, {}),
-    deletePhoto: (id: string) => axios.delete(`/photos/${id}`)
+    deletePhoto: (id: string) => axios.delete(`/photos/${id}`),
+    updateProfile: (profile: Partial<Profile>) => requests.put(`/profiles`, profile),
+    updateFollowing: (username: string) => requests.post(`/follow/${username}`, {}),
+    listFollowings: (username: string, predicate: string) => requests
+        .get<Profile[]>(`/follow/${username}?predicate=${predicate}`)
 }
 
 const agent = {

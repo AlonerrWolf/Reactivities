@@ -12,12 +12,12 @@ export interface Activity {
     isCancelled?: boolean;
     isGoing?: boolean;
     isHost?: boolean
-    attendees?: Profile[]
+    attendees: Profile[]
     host?: Profile;
 }
 
 export class ActivityFormValues
-{
+  {
     id?: string = undefined;
     title: string = '';
     category: string = '';
@@ -26,22 +26,22 @@ export class ActivityFormValues
     city: string = '';
     venue: string = '';
 
-    constructor(activity?: ActivityFormValues) {
-        if (activity) {
-            this.id = activity.id;
-            this.title = activity.title;
-            this.category = activity.category;
-            this.description = activity.description;
-            this.date = activity.date;
-            this.venue = activity.venue;
-            this.city = activity.city;
-        }
+	  constructor(activity?: ActivityFormValues) {
+      if (activity) {
+        this.id = activity.id;
+        this.title = activity.title;
+        this.category = activity.category;
+        this.description = activity.description;
+        this.date = activity.date;
+        this.venue = activity.venue;
+        this.city = activity.city;
+      }
     }
 
-}
+  }
 
-export class Activity implements Activity {
+  export class Activity implements Activity {
     constructor(init?: ActivityFormValues) {
-        Object.assign(this, init);
+      Object.assign(this, init);
     }
-}
+  }

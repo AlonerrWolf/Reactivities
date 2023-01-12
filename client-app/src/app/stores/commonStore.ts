@@ -1,11 +1,11 @@
-import {ServerError} from "../models/serverError";
-import {makeAutoObservable, reaction} from "mobx";
+import { makeAutoObservable, reaction } from "mobx";
+import { ServerError } from "../models/serverError";
 
 export default class CommonStore {
     error: ServerError | null = null;
     token: string | null = localStorage.getItem('jwt');
     appLoaded = false;
-
+    
     constructor() {
         makeAutoObservable(this);
 

@@ -4,9 +4,10 @@ export interface User {
     token: string;
     image?: string;
 }
-export interface UserFormValues{
+
+export interface UserFormValues {
     email: string;
     password: string;
     displayName?: string;
-    userName?: string;
+    username?: string;
 }

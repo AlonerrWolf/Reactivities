@@ -36,3 +36,4 @@ export default function PhotoUploadWidgetDropzone({setFiles}: Props) {
         </div>
     )
 }
+
